@@ -62,24 +62,21 @@ function EvenAndOdd() {
 	const [oddArray, setOddArray] = useState([]);
 	const [userInput, setUserInput] = useState("");
 
-	const getEven = (arr) =>
-		arr
+	const getEven = a =>
+		a
 			.split(",")
-			.map((e) => parseInt(e, 10))
-			.filter((e) => e % 2 === 0);
-	const getOdd = (arr) =>
-		arr
+			.map(e => parseInt(e, 10))
+			.filter(e => e % 2 === 0);
+	const getOdd = a =>
+		a
 			.split(",")
-			.map((e) => parseInt(e, 10))
-			.filter((e) => e % 2 !== 0);
+			.map(e => parseInt(e, 10))
+			.filter(e => e % 2 !== 0);
 
 	return (
 		<div className="puzzleBox evenAndOddPB">
 			<h4>Evens and Odds</h4>
-			<input
-				className="inputLine"
-				onChange={(e) => setUserInput(e.target.value)}
-			></input>
+			<input className="inputLine" onChange={e => setUserInput(e.target.value)}></input>
 			<button
 				className="confirmationButton"
 				onClick={() => {
@@ -89,9 +86,7 @@ function EvenAndOdd() {
 			>
 				Split
 			</button>
-			<span className="resultsBox">
-				Evens: {JSON.stringify(evenArray)}
-			</span>
+			<span className="resultsBox">Evens: {JSON.stringify(evenArray)}</span>
 			<span className="resultsBox">Odds: {JSON.stringify(oddArray)}</span>
 		</div>
 	);
