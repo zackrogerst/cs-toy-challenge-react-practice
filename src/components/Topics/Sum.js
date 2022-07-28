@@ -1,7 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Sum() {
-	return <p>Sum</p>;
+	const [num1, setNum1] = useState(0);
+	const [num2, setNum2] = useState(0);
+	const [sum, setSum] = useState(null);
+
+	return (
+		<div className="puzzleBox sumPB">
+			<h4>Sum</h4>
+			<input type="number" className="inputLine" onChange={e => setNum1(+e.target.value)}></input>
+			<input type="number" className="inputLine" onChange={e => setNum2(+e.target.value)}></input>
+			<button className="confirmationButton" onClick={() => setSum(num1 + num2)}>Add</button>
+			<span className="resultsBox">Result: {sum}</span>
+		</div>
+	);
 }
 
 export default Sum;
+
+// import React, { Component } from 'react';
+
+// export default class Sum extends Component {
+
+//   constructor() {
+//     super();
+
+//     this.state = {
+//       number1: 0,
+//       number2: 0,
+//       sum: null
+//     }
+//   }
+
+//   updateNumber1(val) {
+//     this.setState({ number1: parseInt(val, 10) });
+//   }
+
+//   updateNumber2(val) {
+//     this.setState({ number2: parseInt(val, 10) });
+//   }
+
+//   add(num1, num2) {
+//     this.setState({ sum: num1 + num2 });
+//   }
+
+//   render() {
+//     return (
+//       <div className="puzzleBox sumPB">
+//         <h4> Sum </h4>
+//         <input className="inputLine" type="number" onChange={ (e) => this.updateNumber1(e.target.value) }></input>
+//         <input className="inputLine" type="number" onChange={ (e) => this.updateNumber2(e.target.value) }></input>
+//         <button className="confirmationButton" onClick={ () => this.add(this.state.number1, this.state.number2) }> Add </button>
+//         <span className="resultsBox"> Sum: {this.state.sum} </span>
+//       </div>
+//     )
+//   }
+// }
